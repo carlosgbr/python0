@@ -1,0 +1,24 @@
+“”” Traductor Pig latin
+  Por about.me/carlosgbr
+  Versión 1
+  Para Python 3.0 y superior
+  Entrada: Una palabra
+  Salida: Palabra traducida a “Pig Latin”
+  Validaciones: Verifica que se introduzca una cadenade texto, sale si se introduce una cadena vacía
+“””
+
+pyg = ‘ei’
+
+original = raw_input(‘Escribe una palabra:’)
+
+if len(original) > 0 and original.isalpha():
+  palabra = original.lower()
+  primera = palabra[0]
+  if (primera == “a” or primera == “e” or primera == “o” or       primera == “u” or primera == “i”):
+    nueva_palabra = palabra + pyg
+  else:
+    print “consonante”
+    nueva_palabra = palabra[1:] + primera +pyg
+    print nueva_palabra
+  else:
+    print “Debes escribir una palabra para poder utilizar el traductor.”
