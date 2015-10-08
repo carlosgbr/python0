@@ -1,0 +1,26 @@
+""" Uso simple de funciones en Python
+Por: about.me/carlosgbr
+Versión 1
+Para Python 3.0 y superior
+Entrada: Un número entero
+Salida: Si el número es divisible entre 3, lo eleva al cubo, en caso contrario no hace nada
+Validaciones: Verifica si un número es divisible entre 3
+"""
+
+#Definimos nuestra función para elevar un número al cubo
+def cubo(base):
+  return base ** 3
+
+def por_tres(un_numero):
+  """ Validamos que el nùmero sea divisble entre 3, si es correcto lo elevamos, en caso contrario no hacemos nada """
+  """ Validamos si el número es divisible por 3  """
+  if un_numero % 3 == 0:
+    return cubo(un_numero)
+  else:
+    return False
+
+#Banco de pruebas
+
+print por_tres(11)
+print por_tres(12)
+print por_tres(13)
