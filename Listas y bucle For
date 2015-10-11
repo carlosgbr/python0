@@ -1,0 +1,18 @@
+""" Listas y bucle For
+  Por about.me/carlosgbr
+  Versión 1
+  Para Python 3.0 y superior
+  Entrada: Una lista
+  Salida: Nueva lista ordenada con el cuadrado de cada elemento de la lista original
+  Se utliza un bucle For para recorrer la lista
+"""
+
+lista_inicial = [5, 3, 1, 2, 4]
+lista_cuadrado = []
+
+for numero in lista_inicial:
+    temp = numero ** 2
+    lista_cuadrado.append(temp)
+    
+lista_cuadrado.sort()
+print lista_cuadrado
