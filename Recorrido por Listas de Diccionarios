@@ -1,0 +1,51 @@
+""" Recorrido por diccinarios
+  Por about.me/carlosgbr
+  Versión 1
+  Para Python 3.0 y superior
+  Entrada: Un diccionario
+  Salida: Los elementos del diccionario utilizando un ciclo FOR
+  El objetivo es ilustrar como mostrar los elementos de la       lista de forma individual
+"""
+#Definimos nuestro diccionario
+Lloyd = {
+    "nombre":"Lloyd",
+    "tareas": [90, 97, 75, 92],
+    "pruebas": [88, 40, 94],
+    "examenes": [75, 90]
+    }
+Alice = {
+    "nombre":"Alice",
+    "tareas": [100,92,98,100],
+    "pruebas": [82,83,91],
+    "examenes": [89,97]
+    }
+Tyler = {
+    "nombre":"Tyler",
+    "tareas": [0,87,75,22],
+    "pruebas": [0,75,78],
+    "examenes": [100,100]
+    }
+
+#Definimos un índice para mostrar los elementos del diccionario
+indice = 0
+
+#Creamos una lista a partir de nuestro diccionario
+estudiantes = [Lloyd, Alice, Tyler]
+
+'''
+El objetivo de este código es únicamente mostrar como se mostraría cada elemento de forma individuaol, se presente porque no encontré documentadocomo mostrar individualmente elementos de una lista de diccionarios al realizar este ejercicio
+
+print estudiantes[0]["nombre"]
+print "Tareas : ", estudiantes[0]["tareas"]
+print "Pruebas : ", estudiantes[0]["pruebas"]
+print u"Exámenes : ", estudiantes[0]["examenes"]
+'''
+
+#Hacemos el recorrido de nuestra lista mostrando cada elemento de forma individual
+for alumno in estudiantes:
+    print estudiantes[indice]["nombre"]
+    print "Tareas : ", estudiantes[indice]["tareas"]
+    print "Pruebas : ", estudiantes[indice]["pruebas"]
+    print u"Exámenes : ", estudiantes[indice]["examenes"]
+    #Debemos usar un índice para tener acceso a los elementos de la lista
+    indice += 1
