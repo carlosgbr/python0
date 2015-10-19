@@ -1,3 +1,11 @@
+""" Listas: Ejercicio de manejo de listas dentro de funciones
+  Por about.me/carlosgbr
+  Versión 1
+  Para Python 3.0 y superior
+  Entrada: Listas
+  Salida: Diversos tratamientos de listas ilustrando el uso de funciones.
+"""
+
 '''
 Imprimir el segundo elemento de la lista.
 n = [1,3,5]
@@ -12,7 +20,6 @@ print n [2]
 Multiplica el segundo elemento por 5 y luego imprime la lista completa.
 n = [1,3,5]
 '''
-
 n = [1,3,5]
 n[1] = n[1] * 5
 
@@ -20,19 +27,211 @@ print n
 
 
 '''
+Agrega el número 4 al final de la lista n y luego imprime la lista.
+n = [1,3,5]
 '''
+n = [1,3,5]
+n.append(4)
+
+print n
+
+'''
+Quita el primer elemento de la lista n y luego imprime n.
+n = [1,3,5]
+'''
+n = [1,3,5]
+n.pop(0)
+
+print n
 
 
 '''
+Cambia la función de manera que el argumento dado se multiplique por 3 y devuelva el resultado.
 '''
-'''
-'''
-'''
-'''
-'''
-'''
-'''
-'''
-'''
-'''
+n = 5
+def myFun(x):
+    return x * 3
+print myFun(n)
 
+
+'''
+Define una función llamada myFun que tenga 2 argumentos y los sume.
+'''
+m = 5
+n = 13
+def myFun(num1, num2):
+    return num1 + num2
+
+print (myFun(m,n))
+
+
+'''
+Cambia tu código del último ejercicio para tomar un número arbitrario de argumentos. Haz que entregue como resultado la suma de dichos argumentos.
+'''
+m = 5
+n = 13
+
+'''
+def myFun(*nums):
+
+    return sum(nums)'''
+    
+def myFun(*nums):
+    add = 0
+    for index in nums:
+        add += nums[index]
+
+    return add
+
+print (myFun(m,n))
+
+
+'''
+Escribe una función llamada myFun que tome un argumento string y luego devuelva ese argumento concatenado con la palabra 'mundo'. No agregues ningún espacio antes de la palabra mundo.
+'''
+n = "Hola"
+
+def myFun(n):
+    return n + "mundo"
+
+print myFun(n)
+
+
+'''
+Cambia myFun para que devuelva solamente el segundo valor de la lista.
+'''
+n = [3,5,7]
+def myFun(x):
+    return x[1]
+print myFun(n)
+
+'''
+Cambia myFun de manera que agregue 3 al segundo elemento de la lista, después devuelve la lista completa.
+'''
+n = [3,5,7]
+def myFun(x):
+    x.insert(0,3)
+    return x
+print myFun(n)
+
+
+'''
+Crea una función llamada myFun que agregue el número 9 al final de una lista y devuelva esa lista.
+'''
+n = [3,5,7]
+def myFun(lista):
+    lista.append(9)
+    return lista
+
+print myFun(n)
+
+
+'''
+Crea una función llamada myFun que tome una lista e imprima cada elemento uno por uno. Usa el código existente como apoyo. Haga que el argumento de la función se llame x.
+'''
+n = [3,5,7]
+
+def myFun(x):
+    for i in range(0,len(x)):
+        print x[i]
+    return 
+
+print myFun(n)
+
+
+'''
+Crea una función llamada myFun que tome un argumento individual x (que puede ser una lista) y multiplique cada elemento por 2 y devuelva esa lista. Usa el código existente como apoyo.
+'''
+n = [3,5,7]
+def myFun(x):
+    for i in range(0,len(n)):
+        x[i]=x[i]*2
+    return x
+    
+print n
+print myFun(n)
+
+
+'''
+Pasa una serie compuesta de 0, 1, 2 a myFun.
+'''
+def myFun(x):
+    for i in range(0,len(x)):
+        x[i] = x[i]*2
+    return x
+    
+print myFun(range(3))
+
+
+
+'''
+Crea una función llamada myFun que cuente todos los elementos de una lista y devuelva ese recuento, usando el código existente como pista. Usa el bucle for para que se pueda usar para cualquier tamaño de lista.
+'''
+n = [3,5,7]
+count = n[0] + n[1] + n[2]
+print count
+
+def myFun(lista):
+    count = 0
+    for i in range(0, len(lista)):
+        count += n[i]
+    return count
+    
+print myFun(n)
+
+
+'''
+Crea una función llamada myFun que concatene todos los strings en una lista y devuelva el string resultante.
+'''
+n = ["Michael","Lieberman"]
+def myFun(cadenas):
+    cad = ""
+    for i in range(0,len(cadenas)):
+        cad += cadenas[i]
+    return cad
+
+print myFun(n)
+
+
+'''
+Crea una función llamada myFun que tome dos listas, x y y, anexe y al final de x, luego devuelva la lista terminada. Usa el código existente como apoyo.
+'''
+m = [1,2,3]
+n = [4,5,6]
+v = m+n
+print v
+
+def myFun(lista1, lista2):
+    return lista1 + lista2    
+    
+    
+print myFun(m,n)
+
+
+'''
+Crea una función, myFun, que toma un número arbitrario de listas y las concatena.
+'''
+m = [1,2,3]
+n = [4,5,6]
+o = [7,8,9]
+def myFun(*listas):
+    cad = []
+    for i in range(0, len(listas)):
+        cad += listas[i]
+    return cad
+
+print myFun(m,n,o)
+
+
+'''
+Crea una función llamada myFun que toma una lista única y concatene todas las sublistas que hacen parte de la misma en una lista única.
+n = [[1,2,3],[4,5,6,7,8,9]]
+'''
+n = [[1,2,3],[4,5,6,7,8,9]]
+def myFun (listota):
+    listacorrida = []
+    for i in range(0,len(listota)):
+        listacorrida += listota[i]
+    return listacorrida
+    
+print myFun(n)
