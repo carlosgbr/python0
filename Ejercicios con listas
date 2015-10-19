@@ -1,0 +1,38 @@
+'''
+Imprimir el segundo elemento de la lista.
+n = [1,3,5]
+'''
+
+n = [1,3,5]
+
+print n [2]
+
+
+'''
+Multiplica el segundo elemento por 5 y luego imprime la lista completa.
+n = [1,3,5]
+'''
+
+n = [1,3,5]
+n[1] = n[1] * 5
+
+print n
+
+
+'''
+'''
+
+
+'''
+'''
+'''
+'''
+'''
+'''
+'''
+'''
+'''
+'''
+'''
+'''
+
