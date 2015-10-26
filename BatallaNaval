@@ -1,0 +1,74 @@
+""" 
+  Batalla Naval: Juego para un usuario de Batalla naval
+  Por http://about.me/carlosgbr
+  Versión 1
+  Para Python 3.0 y superior
+  El usuario debe propocionar un par de coordenadas para         
+  adivinar la posición de nuestro barco, el usuario gana si     
+  adivina dentro de 4 intentos.
+
+"""
+
+#Nos permite utilizar números aleatorios
+import random
+
+#Definimos nuestro tablero
+tablero = []
+
+#Definimos y llenamos nuestro tablero de 5 x 5 con "O"
+for x in range(0,5):
+  tablero.append(["O"] * 5)
+
+'''
+def print_tablero(tablero): toma un tablero y lo muestra, .join(fila) "limpia" las comas y comillas del tablero dejando solo las O, esta función es parte de Python
+'''
+def print_tablero(tablero):
+  for fila in tablero:
+    print " ".join(fila)
+
+#Muestra nuestro tablero original
+print u"¡Juguemos batalla naval!"
+print_tablero(tablero)
+
+#Definimos los números aleatorios para la posición: fila y columna de nuestro barco
+def fila_aleatoria(tablero):
+  return random.randint(0,len(tablero)-1)
+
+def columna_aleatoria(tablero):
+  return random.randint(0,len(tablero[0])-1)
+
+#Determinamos la posición de nuestro barco
+barco_fila = fila_aleatoria(tablero)
+barco_col = columna_aleatoria(tablero)
+# print barco_fila    *** Solo para depurar
+# print barco_col     *** Solo para depurar
+
+
+
+'''El usuario tiene 4 oportunidades de adivinar la posición de nuestro barco. Se valida que no se introduzcan coordenadas fuera de rango
+'''
+
+for turno in range(4):
+    print "Cuentas con 4 oportunidades. Oportunidad: ", turno + 1, " de 4"
+    #Recogemos la respuesta del usuario
+    adivina_fila = input("Adivina fila:")
+    adivina_columna = input("Adivina columna:")
+    
+    #Si adivina, felicitamos y terminamos.
+    if adivina_fila == barco_fila and adivina_columna == barco_col:
+      print u"¡Felicitaciones! ¡Hundiste mi barco!"
+      print print_tablero(tablero)
+      break
+    else: #sino adivina, Validamos que no esté fuera de rango
+      if (adivina_fila < 0 or adivina_fila > 4) or (adivina_columna < 0 or adivina_columna > 4):
+        print u"Vaya, esto ni siquiera está en el océano."
+      elif(tablero[adivina_fila][adivina_columna] == "X"):
+        print "Ya dijiste esa." #Verifica que no hayamos dicho ya esa
+      else:
+      	print u"¡No impactaste mi barco!"
+      	#Marcamos la respuesta
+      	tablero[adivina_fila][adivina_columna] = "X"
+      print_tablero(tablero)
+    if turno == 3:
+        #Termina si no se adivina en 4 intentos
+        print u"Terminó el juego"
