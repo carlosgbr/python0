@@ -133,6 +133,41 @@ print filter(lambda x: x >= 30 and x<=70, cuadrados)
 
 #****************************************************************************************************
 
+'''
+Usa una comprensión de lista para crear una lista, treses_y_cincos, que consiste en los números del 1 al 15 (inclusive) 
+que son divisibles por 3 ó 5.
+'''
 
+treses_y_cincos = [x for x in range(1,16) if x%3 == 0 or x%5 == 0]
+print treses_y_cincos
+
+#****************************************************************************************************
+
+'''
+El string en el editor es incomprensible. Usa el particionado de listas para extraer el mensaje 
+y guárdalo en una variable llamada mensaje.
+'''
+
+incomprensible = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
+reverse = incomprensible[::-1]
+mensaje = ""
+for x in reverse:
+    if x != "X":
+        mensaje += x
+
+print mensaje
+
+#****************************************************************************************************
+
+'''
+Te hemos proporcionado otra incomprensible (un poco diferente). 
+Declara mensaje de nuevo, pero esta vez, fíjala igual a filter() 
+y pasa la expresión lambda apropiada que filtrará las "X". 
+Por último, print tu mensaje en la consola para que todos lo podamos ver.
+'''
+
+incomprensible = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
+mensaje = filter(lambda x: x != "X", incomprensible)
+print mensaje 
 
 #****************************************************************************************************
