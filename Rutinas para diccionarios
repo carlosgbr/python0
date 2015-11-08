@@ -1,0 +1,52 @@
+'''
+ Rutinas para diccionarios: Ejemplo de recorrido por diccionarios en Python
+ Por http://about.me/carlosgbr
+ Fecha: 08/11/15
+ Versión 1
+ Para Python 3.0 y superior
+ 
+ '''
+ 
+#Presentación de un diccionario
+mi_dict = {"Nombre": "Paulina",
+           "Edad": 31,
+           "Licenciatura": True,
+}
+
+print mi_dict.items()
+
+#***********************************************************************************************
+
+#Presentación de las claves y valores de un diccionario
+mi_dict = {"Nombre": "Paulina",
+           "Edad": 31,
+           "Licenciatura": True,
+}
+
+print mi_dict.keys()
+print mi_dict.values()
+
+#***********************************************************************************************
+'''
+Uso del operador in para iterar sobre mi_dict e imprimir cada par clave/valor del diccionario. 
+Separa la clave del valor con un solo espacio.
+'''
+
+mi_dict = {"Nombre": "Paulina",
+           "Edad": 31,
+           "Licenciatura": True,
+}
+
+print mi_dict.keys()
+print mi_dict.values()
+
+for clave in mi_dict:
+    print clave, " ", mi_dict[clave]
+    
+#***********************************************************************************************
+
+
+#***********************************************************************************************
+
+
+#***********************************************************************************************
