@@ -1,0 +1,122 @@
+'''
+ Rutinas mateméticas básicas: Colección de pequeñas utillerías en Python
+ Por http://about.me/carlosgbr
+ Versión 1
+ Para Python 3.0 y superior
+ Colección de rutinas simples para algunas actividades cotidianas que requieren desiciones a partir de un número dado.
+ A continuaciòn se presenta el contienido de rutinas:
+ 
+** es_par(num)
+Toma un número (num) y determina si es par devolviendo True, en otro caso devuelve False
+
+** es_entero(num)
+Toma un número x como entrada y devuelva la respuesta booleana True si el número es entero (en la vida real)
+y False si no lo es. Nota: Un número entero se define como un número que no tiene parte fraccionaria. Los números 
+negativos sin partes fraccionarias también se consideran enteros. de este modo 
+es_entero(7.00) # Verdadero
+es_entero(7.5)   # Falso
+es_entero(-1)     # Verdadero  
+
+** suma_de_digitos(num)
+suma_de_digitos que toma como entrada un entero positivo n y devuelva la suma de todos los dígitos de ese número.
+Por ejemplo: suma_de_digitos(1234) debería devolver 10 que corresponde a 1 + 2 + 3 + 4.
+
+** factorial(num)
+Toma como entrada un entero x y devuelva el factorial de ese número.
+
+** es_primo(num)
+es_primo toma un número x como entrada y devuelva el booleano True si x es primo y False si no lo es.
+
+'''
+
+# *********************************************************************************************
+#Toma un número (num) y determina si es par devolviendo True, en otro caso devuelve False
+def es_par(num):
+    if num % 2 == 0:
+        return True
+    else:
+        return False
+
+#Argumento de validación        
+print es_par(0)
+
+# *********************************************************************************************
+'''suma_de_digitos que toma como entrada un entero positivo n y devuelva la suma de todos los dígitos de ese número.
+Por ejemplo: suma_de_digitos(1234) debería devolver 10 que corresponde a 1 + 2 + 3 + 4. '''
+def es_entero(num):
+    if round(num) != num:
+        return False
+    else:
+        return True
+        
+#Argumento de validación  
+print es_entero(5.2)
+# *********************************************************************************************
+
+def suma_de_digitos(num):
+    strnum = str(num)
+    suma = 0
+    for x in strnum:
+        xnum = int(x)
+        suma += xnum
+    return suma
+        
+#Argumento de validación          
+print suma_de_digitos(7894)
+
+# *********************************************************************************************
+#Toma como entrada un entero x y devuelva el factorial de ese número.
+def factorial(num):
+    total = 1
+    x = 1
+    while x <= num:
+        total *= x
+        x += 1
+    return total
+    
+#Argumento de validación    
+print factorial(8)
+
+# *********************************************************************************************
+#es_primo toma un número x como entrada y devuelva el booleano True si x es primo y False si no lo es.
+def es_primo(num):
+    flag = []
+    esprimo = True
+    temp = False
+    peso = 0
+    limite = num
+    
+    while esprimo:
+        if num < 2:
+            return False
+            break
+        elif num == 2:
+            return True
+            break
+        else:
+
+            for i in range(num):
+                i += 1
+                if (num % i) != 0:
+                    flag.append(False)
+                else: 
+                    flag.append(True)
+            #print flag  #Señalizador para depurar
+            
+        for index in flag:
+           if index == True:
+               peso += 1
+        
+        if peso == 2:
+            return True
+        else:
+            return False
+           
+        #Después de las pasadas lo hacemos falso para terminar el bucle
+        esprimo = False 
+           
+#Argumento de validación
+print es_primo(811)
+
+# *********************************************************************************************
+
