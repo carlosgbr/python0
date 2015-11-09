@@ -1,0 +1,223 @@
+'''
+ Ejercicios Operaciones a nivel bit
+ Por http://about.me/carlosgbr
+ Fecha: 08/11/15
+ Versión 1
+ Para Python 3.0 y superior
+ Ejemplos básicos de operaciones a nivel bit en Python, Se ilustran las operaciones bàsicas a nivel Bit, 
+ así como una revisión del recorrido de bits y el uso de màscaras
+ '''
+ 
+ '''
+ En el editor aparecen las 6 operaciones a nivel de bits básicas. 
+ '''
+print 5>>4  # Desplazamiento a la derecha
+print 5<<1  # Desplazamiento a la derecha
+print 8&5   # Operación Y (AND)
+print 9|4   # Operación O (OR)
+print 12^42 # Operación DISYUNCION EXCLUSIVA (XOR)
+print ~88   # Operación NEGACION (NOT)
+
+#**************************************************************************************
+'''
+En Python puedes escribir números en sistema binario iniciando la numeración con 0b. 
+Así pueden hacerse operaciones con estos de la misma manera que con los otros números.
+'''
+print 0b1,    #1
+print 0b10,   #2
+print 0b11,   #3
+print 0b100,  #4
+print 0b101,  #5
+print 0b111,  #6
+print 0b1000  #7
+print "******"
+print 0b1 + 0b11
+print 0b11*0b11
+
+#**************************************************************************************
+
+'''
+A fin de imprimir la representación binaria de un número, puedes utilizar la función bin . 
+bin toma un número entero como entrada y retorna la representación binaria de dicho entero en un string. 
+Ten en cuenta que después de usar la función bin ya no podrás hacer operaciones en dicho valor 
+de la misma manera que con un entero.
+
+También puedes representar números en base octal y hexadecimal utilizando las funciones oct() and hex()
+'''
+
+print bin(1)
+print bin(2)
+print bin(3)
+print bin(4)
+print bin(5)
+
+#**************************************************************************************
+
+'''
+Segundo Parámetro de la Función int()'s
+int() Puede convertir una entrada numérica no entera en un entero, de esta manera:
+int("42")
+# ==> 42
+int tiene un segundo parámetro opcional. Si se suministra un string que contiene tanto un número como la base en 
+la que éste se encuentra, la función retornará el valor de dicho número en base decimal. 
+Así, si ejecutas int("1010",2) retornará 10, dado que 0b1010 es el equivalente en base binaria de 10.
+'''
+
+print int("1",2)
+print int("10",2)
+print int("111",2)
+print int("0b100",2)
+print int(bin(5),2)
+print int("11001001", 2)
+
+#**************************************************************************************
+
+'''
+Desplazamiento de bits
+Estos operadores funcionan desplazando los bits de un número a lo largo de un determinado número de posiciones. 
+
+Desplazamiento de bit a la derecha (<<)  
+0b000001 << 2 = 0b000100 (1 << 2 = 4)
+0b000101 << 3 = 0b101000 (5 << 3 = 40)       
+
+Desplazamiento de bit a la izquierda (>>)
+0b0010100 >> 3 = 0b000010 (1 >> 3 = 2)
+0b0000010 >> 2 = 0b000000 (2 >> 2 = 0) 
+'''
+
+desplaza_derecha = 0b1100
+desplaza_izquierda = 0b1
+
+desplaza_derecha = 0b1100 >> 2
+desplaza_izquierda = 0b1 << 2
+
+print bin(desplaza_derecha)
+print bin(desplaza_izquierda)
+
+#**************************************************************************************
+
+'''
+OPERACIONES LOGICAS "Y"
+Por tanto, recuerda para cada bit en a y `b:
+
+0 & 0 = 0
+0 & 1 = 0
+1 & 0 = 0
+1 & 1 = 1
+'''
+a = 0b1110
+b = 0b101
+ayb= 0b100
+
+print bin(ayb)
+
+#**************************************************************************************
+
+'''
+OPERACIONES LOGICAS "O"
+Por tanto, recuerda para cada bit en a y `b:
+
+0 | 0 = 0
+0 | 1 = 1 
+1 | 0 = 1
+1 | 1 = 1
+'''
+
+a = 0b1110
+b = 0b101
+aob = 0b1111
+
+print bin(aob)
+
+#**************************************************************************************
+
+'''
+OPEACIONES LOGICAS "XOR"
+Por tanto, recuerda para cada bit en a y `b:
+
+0 ^ 0 = 0
+0 ^ 1 = 1
+1 ^ 0 = 1
+1 ^ 1 = 0
+'''
+
+a = 0b1110
+b = 0b0101
+
+axorb = 0b1011
+
+print bin(axorb)
+
+#**************************************************************************************
+
+'''
+OPEACIONES LOGICAS "NOT"
+Por tanto, recuerda para cada bit en a y `b:
+
+l operador a nivel de bits not (~) invierte todos los bits de un número entero. 
+'''
+print ~1
+print ~2
+print ~3
+print ~42
+print ~123
+
+#**************************************************************************************
+
+'''
+Una máscara de bits es básicamente una variable que te ayuda con las operaciones a nivel de bits. 
+Una máscara de bits te ayuda a encender bits específicos, apagar otros, o a recoger datos acerca de qué bits están 
+encendidos o apagados en un entero.
+'''
+def chequea_bit4(entero):
+    mascara = 0b1000
+    evalua = entero & mascara
+    #print evalua[::-3]
+
+    if evalua == mascara:
+        return "on"
+    else: 
+        return "off"
+        
+print chequea_bit4(0b10000)
+
+#**************************************************************************************
+
+'''
+En la consola aparece como la variable a. Utiliza una máscara de bits y el valor a para lograr un resultado 
+en el cual el tercer bit, comenzando desde la derecha, esté encendido. 
+Asegúrate de imprimir tu respuesta como un string bin.
+'''
+
+a = 0b10111011
+mask = 0b100
+
+valor = bin(a | mask)
+
+print valor
+
+#*************************************************************************************
+En la consola aparece la variable a de 8 bits. 
+Utiliza una máscara de bits y el valor a para lograr un resultado en el cual todos los bits en a estén invertidos. 
+Asegúrate de imprimir tu respuesta como un string bin.
+
+a = 0b11101110
+mask = 0b11111111
+
+valor = bin(a ^ mask)
+
+print valor
+
+#*************************************************************************************
+
+'''
+Finalicemos realizando una función invierte_bit que tome los datos de entrada (numero, n) y posteriormente retorna el
+número con enésimos bits invertidos (comenzando desde el primer bit a la derecha). 
+El número n siempre será un entero, y debe arrojar un bin string como resultado.
+'''
+
+def invierte_bit(numero, n):
+    mask = 0b1 << (n-1)
+    valor = bin(numero ^ mask)
+    return valor
+#*************************************************************************************
