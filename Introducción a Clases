@@ -1,0 +1,193 @@
+
+'''
+ Introducciòn a Clases
+ Por http://about.me/carlosgbr
+ Fecha: 08/11/14
+ Versión 1
+ Para Python 3.0 y superior
+Ejemplos bàsicos del uso de clases, métodos y herencia en Python
+'''
+
+
+
+class Animal(object):
+	"""Crea animales lindos."""
+	esta_vivo = True
+	salud = "buena"
+	def __init__(self, nombre, edad):
+		self.nombre = nombre
+		self.edad = edad
+	def descripcion(self,nombre, edad):
+	    print nombre
+	    print edad
+	    
+hipopotamo = Animal("Ojitos", 15) 
+perezoso = Animal("Carlos", 30)	    
+ocelote = Animal("Whatis", 25)
+
+hipopotamo.descripcion("Ojitos", 15)
+print hipopotamo.salud
+perezoso.descripcion("Carlos", 30)
+print perezoso.salud
+ocelote.descripcion("Whatis", 25)
+print ocelote.salud
+
+#********************************************************************************************
+
+'''
+Aquí tenemos una clase básica CarritoDeCompras que crea objetos de carrito de compras para los clientes 
+de un sitio web; aunque sea básica, se parece a lo que verías en un programa real.
+'''
+
+class CarritoDeCompras(object):
+	"""Crea objetos de carritos de compras
+	para los usuarios de nuestro elegante sitio web."""
+	items_en_carrito = {}
+	def __init__(self, nombre_cliente):
+		self.nombre_cliente = nombre_cliente
+		
+	def agregar_item(self, producto, precio):
+		"""Agrega un producto al carrito."""
+		self.producto = producto
+		self.precio = precio
+		
+		if not producto in self.items_en_carrito:
+			self.items_en_carrito[producto] = precio
+			print producto + " agregado."
+		else:
+			print producto + " ya fue incluido en el carrito."
+		
+	def eliminar_item(self, producto):
+		self.producto = producto
+		if producto in self.items_en_carrito:
+			del self.items_en_carrito[producto]
+			print producto + " eliminado."
+		else:
+			print producto + " no está incluido en el carrito."
+	
+	
+mi_carrito = CarritoDeCompras("Carlos")
+mi_carrito.agregar_item("Mota",25)
+
+#********************************************************************************************
+
+'''
+Herencia
+La herencia es el proceso por el cual una clase toma los atributos y los métodos de otra, 
+y se usa para expresar una relación del tipo es-un. 
+'''
+
+class Cliente(object):
+	"""Produce objetos que representan clientes."""
+	def __init__(self, id_cliente):
+		self.id_cliente = id_cliente
+	
+	def ver_carrito(self):
+		print u"¡Soy un string que representa el contenido de tu carrito de compras!"
+
+class ClienteHabitual(Cliente):
+	"""Para los clientes que repiten variedad."""
+	def __init__(self, id_cliente):
+		self.id_cliente = id_cliente
+
+	def ver_historial_pedido(self):
+		print u"¡Soy un string que representa el historial de tu pedido!"
+
+monty_python = ClienteHabitual("ID: 12345")
+monty_python.ver_carrito()
+monty_python.ver_historial_pedido()
+
+#********************************************************************************************
+
+'''
+Sustituciòn de mètodos heredados
+Crea una nueva clase, EmpleadoMedioTiempo, que sea herencia de Empleado. Dale a tu clase derivada 
+un método calcular_sueldo que sustituya el de Empleado; debe dar como resultado la cantidad de horas 
+que trabajó el empleado de medio tiempo multiplicada por 12 (es decir, gana $12.00 la hora, en vez de $20.00).
+'''
+
+class Empleado(object):
+	"""¡Representa empleados reales!"""
+	def __init__(self, nombre_empleado):
+		self.nombre_empleado = nombre_empleado
+	
+	def calcular_sueldo(self, horas):
+		self.horas = horas
+		return horas * 20.00
+
+class EmpleadoMedioTiempo(Empleado):
+	
+	def calcular_sueldo(self, horas):
+	    self.horas = horas
+	    return horas * 12.00
+	    
+#********************************************************************************************
+
+'''
+Crea una instancia de tu clase Triangulo que se llame mi_triangulo. Pásale los ángulos válidos que quieras, 
+y usa print para mostrar en líneas separadas su atributo numero_de_lados y el resultado de llamar su método revisar_angulos.
+'''
+
+class Triangulo(object):
+    numero_de_lados = 3
+    def __init__(self, angulo1, angulo2, angulo3):
+        self.angulo1 = angulo1
+        self.angulo2 = angulo2
+        self.angulo3 = angulo3
+        
+    def revisar_angulos(self):
+        if (self.angulo1 < 0) or (self.angulo2 < 0) or (self.angulo3 < 0): return False
+        
+        if (self.angulo1 + self.angulo2 + self.angulo3) == 180:
+            return True
+        else:
+            return False
+            
+mi_triangulo = Triangulo(90, 45, 45)
+
+print mi_triangulo.angulo1
+print mi_triangulo.angulo2
+print mi_triangulo.angulo3
+print mi_triangulo.numero_de_lados
+print mi_triangulo.revisar_angulos()
+
+#********************************************************************************************
+
+'''
+Crea una clase Equilatero que sea herencia de Triangulo. Debe contener una variable miembro, angulo, 
+con valor de 60. Por último, debe inicializar con el parámetro self únicamente, y debe asignar de self.angulo1 
+hasta self.angulo3 la variable de miembro angulo (ya que los tres ángulos serán de 60˚).
+
+class Triangulo(object):
+    numero_de_lados = 3
+    def __init__(self, angulo1, angulo2, angulo3):
+        self.angulo1 = angulo1
+        self.angulo2 = angulo2
+        self.angulo3 = angulo3
+        
+    def revisar_angulos(self):
+        if (self.angulo1 < 0) or (self.angulo2 < 0) or (self.angulo3 < 0): return False
+        
+        if (self.angulo1 + self.angulo2 + self.angulo3) == 180:
+            return True
+        else:
+            return False
+            
+class Equilatero(Triangulo):
+    angulo = 60
+    def __init__(self):
+        self.angulo1 = self.angulo
+        self.angulo2 = self.angulo
+        self.angulo3 = self.angulo 
+        
+mi_triangulo = Triangulo(90, 45, 45)
+
+print mi_triangulo.angulo1
+print mi_triangulo.angulo2
+print mi_triangulo.angulo3
+print mi_triangulo.numero_de_lados
+print mi_triangulo.revisar_angulos()
+
+#********************************************************************************************
+#********************************************************************************************
+#********************************************************************************************
