@@ -5,7 +5,7 @@
  Fecha: 08/11/14
  Versión 1
  Para Python 3.0 y superior
-Ejemplos bàsicos del uso de clases, métodos y herencia en Python
+Ejemplos bàsicos del uso de clases, métodos y herencia en Python, asì como el uso del método ___repr___()
 '''
 
 
@@ -189,5 +189,90 @@ print mi_triangulo.numero_de_lados
 print mi_triangulo.revisar_angulos()
 
 #********************************************************************************************
+
+'''
+Modificar variables miembro
+Podemos modificar las variables que pertenecen a una clase del mismo modo que inicializamos ésas variables miembro. 
+Esto puede ser útil cuando queremos cambiar el valor de una variable con base en algo que ocurre en el método de una clase.
+'''
+
+class Carro(object):
+	condicion = "nuevo"
+	def __init__(self, modelo, color, mpg):
+		self.modelo = modelo
+		self.color = color
+		self.mpg = mpg
+		
+	def verCarro(self):
+	    return "Este es un " + self.modelo + " color " + self.color + " que alcanza " + str(self.mpg) + " MPG."
+	
+	def manejarCarro(self):
+	    self.condicion = "usado"
+	    
+
+miCarro = Carro("DeLorean", "plata", 88)
+print miCarro.condicion
+miCarro.manejarCarro()
+print miCarro.condicion
+
+
 #********************************************************************************************
+
+'''
+Sustitución de mètodos
+Como nuestro CarroElectrico es un tipo de Carro más especializado, podemos asignarle su propio método de 
+clase manejarCarro(), que tenga una funcionalidad diferente a la clase Carro original.
+'''
+class Carro(object):
+	condicion = "nuevo"
+	def __init__(self, modelo, color, mpg):
+		self.modelo = modelo
+		self.color = color
+		self.mpg = mpg
+		
+	def verCarro(self):
+	    return "Este es un " + self.modelo + " color " + self.color + " que alcanza " + str(self.mpg) + " MPG."
+	
+	def manejarCarro(self):
+	    self.condicion = "usado"
+	    
+class CarroElectrico(Carro):
+    def __init__(self, modelo, color, mpg, tipoDeBateria):
+        self.modelo = modelo
+        self.color = color
+        self.mpg = mpg
+        self.tipoDeBateria = tipoDeBateria  
+    def manejarCarro(self):
+        self.condicion = "como nuevo"
+	    
+	    
+
+miCarro = CarroElectrico("DeLorean", "plata", 88, "sales fundidas")
+print miCarro.condicion
+miCarro.manejarCarro()
+print miCarro.condicion
+
+
 #********************************************************************************************
+
+'''
+Uso del método ___repr___()
+Define una clase Punto3D que herede objeto. Incluye una función personalizada __init__() que tome tres números
+(además de la instrucción self) y los asigne a las variables miembro x, y y z. Después, 
+crea un Punto3D llamado miPunto donde x=1, y=2, y z=3.
+
+Sustituye el método __repr__() de Punto3D de modo que puedas usar print miPunto para ver el objeto usando el 
+siguiente formato:
+(1, 2, 3)
+'''
+
+class Punto3D(object):
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+    def __repr__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ", " + str(self.z) + ")"
+        
+miPunto = Punto3D(1, 2, 3)
+print miPunto
