@@ -92,7 +92,7 @@ Por último, crea una tercera lista, tercio_medio, igual al tercio de la mitad d
 
 hasta_21 = [x for x in range(1,22)]
 impares =  hasta_21[1::2]
-tercio_medio = hasta_21[8:15:]
+tercio_medio = hasta_21[7:14:]
 
 #****************************************************************************************************
 
@@ -129,7 +129,7 @@ Usa filter() y una expresión lambda para imprimir los cuadrados que se encuentr
 '''
 
 cuadrados = [x**2 for x in range(1,11)]
-print filter(lambda x: x >= 30 and x<=70, cuadrados)
+print filter(lambda x: x in range(30, 71), cuadrados)
 
 #****************************************************************************************************
 
@@ -149,13 +149,19 @@ y guárdalo en una variable llamada mensaje.
 '''
 
 incomprensible = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
-reverse = incomprensible[::-1]
-mensaje = ""
-for x in reverse:
-    if x != "X":
-        mensaje += x
+mensaje = incomprensible[::-2]
 
-print mensaje
+"""
+-------------Esto es opcional!-----------
+       reverse = incomprensible[::-1]
+       mensaje = ""
+       for x in reverse:
+           if x != "X":
+               mensaje += x
+
+       print mensaje
+----------------------------------------
+"""
 
 #****************************************************************************************************
 
