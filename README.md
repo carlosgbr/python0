@@ -2,4 +2,4 @@
 Ejercicios básicos de Python
 
 
-Roberto C. González se distribuye bajo una Licencia Creative CLicencia Creative Commonsommons Atribución-NoComercial-CompartirIgual 4.0 Internacional.
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) 
