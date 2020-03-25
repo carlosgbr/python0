@@ -1,4 +1,4 @@
-""" Funciones y condicionales while: es_potencia_de_dos.py
+b""" Funciones y condicionales while: es_potencia_de_dos.py
   Por about.me/carlosgbr
   Versión 1
   Para Python 3.0 y superior
@@ -21,7 +21,7 @@ def es_potencia_de_dos(n):
   return True
   
 
-print(es_potencia_de_dos(0)) # Should be False
-print(es_potencia_de_dos(1)) # Should be True
-print(es_potencia_de_dos(8)) # Should be True
-print(es_potencia_de_dos(9)) # Should be False
+print(es_potencia_de_dos(0)) # Debe ser False
+print(es_potencia_de_dos(1)) # Debe ser True
+print(es_potencia_de_dos(8)) # Debe ser True
+print(es_potencia_de_dos(9)) # Debe ser False
