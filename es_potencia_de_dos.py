@@ -1,4 +1,4 @@
-b""" Funciones y condicionales while: es_potencia_de_dos.py
+""" Funciones y condicionales while: es_potencia_de_dos.py
   Por about.me/carlosgbr
   Versión 1
   Para Python 3.0 y superior
