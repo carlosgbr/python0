@@ -4,11 +4,7 @@
   Para Python 3.0 y superior
   Se ilustra el uso de funciones y la estructura while en Python
 """
-"""
-ENUNCIADO: Complete los espacios en blanco para que la función 
-imprimir_factores_primos imprima todos los factores primos de un número. 
-Un factor primo es un número que es primo y divide a otro sin resto.
-"""
+
 def imprimir_factores_primos(numero):
     # Comience con dos, que es el primer primo
     factor = 2
@@ -18,10 +14,10 @@ def imprimir_factores_primos(numero):
         if not (numero % factor != 0):
         # Si es así, imprímalo y divida el número original
             print(factor)
-            numero = numero / factor
+            numero /= factor
         else:
         # Si no es así, incremente el factor en uno
-            factor = factor + 1
+            factor += 1
     return "Done"
 
 imprimir_factores_primos(100)
