@@ -59,10 +59,10 @@ def realizaOperacion(a, op, b):
        print("El producto es: ", producto)
     if op == "/":
        division = opDivision(a, b)
-       print("La suma es: ", division)
+       print("La División es: ", division)
     if op == "pot":
        potencia = opPotencia(a, b)
-       print("La suma es: ", potencia)
+       print("La potencia es: ", potencia)
 
 #Determina los operadores permitidos en el programa
 def parsear_operacion(cadena):
@@ -179,21 +179,15 @@ while (terminar != True):
             print(exit())
         txtOperando(b)
 
-'''
-Realiza la operación sobre los operandos 
-'''      
-realizaOperacion(a, op, b)
+    '''
+    Realiza la operación sobre los operandos 
+    '''      
+    realizaOperacion(a, op, b)
 
-respuesta = input("Quieres salir? Escribe S para salir, cualquier otra letra para continuar: ")
-if respuesta in ["S", "s"]:
-    terminar = True
-else:
-    terminar = False
+    respuesta = input("Quieres salir? Escribe S para salir, cualquier otra letra para continuar: ")
+    if respuesta in ["S", "s"]:
+        terminar = True
+    else:
+        terminar = False
 
 print("\n\nGacias por usar nuestros servicios, el cargo lo encontrará en su estado de cuenta")
-
-cadena = input("Escribe la operación : ")
-operandos, signo_operacion = parsear_operacion(cadena)
-# realizaOperacion(operandos, signo_operacion, operandos) 
-print("Operandos:", operandos)
-print("Signo de operación:", signo_operacion)
